@@ -1,0 +1,571 @@
+/* =========================================================
+   COACHCARTS LAB
+   FULL STYLESHEET (REFINED)
+   Fixes: spacing rhythm, hero balance, CTA alignment,
+   offerings positioning, and structural consistency
+   ========================================================= */
+
+/* ================= ROOT ================= */
+
+:root{
+    --primary:#111111;
+    --primary-dark:#000000;
+    --bg:#ffffff;
+    --card:#ffffff;
+    --text:#111111;
+    --muted:#666666;
+    --border:#e8e8e8;
+    --shadow:0 12px 30px rgba(0,0,0,.06);
+    --radius:18px;
+    --transition:.25s ease;
+}
+
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    padding-left:20px;
+}
+
+/* ================= GLOBAL SECTION SPACING (IMPORTANT FIX) ================= */
+
+section{
+    padding:70px 8%;
+}
+
+section + section{
+    padding-top:60px;
+}
+
+/* ================= TYPOGRAPHY ================= */
+
+.section-title{
+    text-align:center;
+    font-size:2.25rem;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.section-subtitle{
+    max-width:760px;
+    margin:0 auto 35px;
+    text-align:center;
+    color:var(--muted);
+}
+
+.subsection-title{
+    font-size:1.6rem;
+    margin:40px 0 20px;
+    text-align:center;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.35rem;
+    font-weight:700;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    font-weight:500;
+    transition:var(--transition);
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+}
+
+.menu-btn{
+    display:none;
+    border:none;
+    background:none;
+    font-size:1.5rem;
+    cursor:pointer;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:14px 28px;
+    border-radius:18px;
+    font-weight:600;
+    transition:var(--transition);
+    cursor:pointer;
+    white-space:nowrap;
+}
+
+.btn.primary{
+    background:var(--primary);
+    color:#fff;
+    border:1px solid var(--primary);
+}
+
+.btn.primary:hover{
+    background:#fff;
+    color:var(--primary);
+}
+
+.btn.secondary{
+    background:#fff;
+    color:var(--primary);
+    border:1px solid var(--primary);
+}
+
+.btn.secondary:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* ================= HERO (BALANCED DOMINANCE FIX) ================= */
+
+.hero{
+    min-height:88vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+}
+
+.hero-content{
+    flex:1;
+    max-width:620px;
+}
+
+.hero h1{
+    font-size:3.1rem;
+    line-height:1.15;
+    margin-bottom:18px;
+}
+
+.hero h2{
+    color:var(--muted);
+    font-weight:500;
+    margin-bottom:18px;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:1.05rem;
+    margin-bottom:14px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.hero-image{
+    flex:1.1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-card{
+    width:380px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:26px;
+    box-shadow:0 18px 50px rgba(0,0,0,.08);
+    padding:50px 40px;
+    text-align:center;
+}
+
+.king{
+    font-size:6.2rem;
+    margin-bottom:14px;
+}
+
+/* ================= ABOUT (READABILITY FIX) ================= */
+
+#about{
+    background:#fafafa;
+}
+
+.about-container{
+    max-width:1000px;
+    margin:0 auto;
+}
+
+.about-container p{
+    color:var(--muted);
+    margin-bottom:22px;
+    font-size:1.05rem;
+    line-height:1.85;
+}
+
+/* ================= LEADERSHIP ================= */
+
+#leadership{
+    background:#fafafa;
+}
+
+.leadership-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:26px;
+    margin-top:35px;
+}
+
+.leader-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:28px;
+    text-align:center;
+    box-shadow:0 4px 14px rgba(0,0,0,.03);
+    transition:var(--transition);
+}
+
+.leader-card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+}
+
+.leader-card p{
+    color:var(--muted);
+    font-size:.95rem;
+}
+
+/* ================= COACH CONTACT (ROBUST INLINE FIX) ================= */
+
+.coach-contact,
+.coach-links{
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid var(--border);
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    font-size:.9rem;
+    color:var(--muted);
+}
+
+.coach-contact strong,
+.coach-links strong{
+    color:var(--text);
+}
+
+/* ================= COACHES ================= */
+
+#coaches{
+    text-align:center;
+}
+
+.coach-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:26px;
+    margin-top:40px;
+}
+
+.coach-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:26px;
+    text-align:center;
+    transition:var(--transition);
+    box-shadow:0 6px 18px rgba(0,0,0,.04);
+}
+
+.coach-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+}
+
+.coach-card img{
+    width:140px;
+    height:140px;
+    object-fit:cover;
+    border-radius:50%;
+    margin:0 auto 18px;
+    border:4px solid #f4f4f4;
+}
+
+.coach-card p{
+    color:var(--muted);
+    margin-bottom:12px;
+}
+
+/* ================= OFFERINGS (PULLED UP VISUALLY) ================= */
+
+#offerings{
+    padding-top:55px;
+}
+
+.lesson-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:26px;
+    margin-top:30px;
+}
+
+/* ================= LESSON CARDS ================= */
+
+.lesson-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 4px 14px rgba(0,0,0,.03);
+    transition:var(--transition);
+}
+
+.lesson-card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+}
+
+.lesson-card ul{
+    color:var(--muted);
+    flex-grow:1;
+}
+
+/* ================= CTA FIX ================= */
+
+.lesson-cta{
+    display:flex;
+    justify-content:center;
+    margin-top:28px;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:22px;
+    margin-top:35px;
+}
+
+.feature{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:26px;
+    transition:var(--transition);
+}
+
+.feature:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#111;
+    color:#ddd;
+    padding:55px 8%;
+    text-align:center;
+}
+
+footer p{
+    color:#bdbdbd;
+    margin:6px 0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:900px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        min-height:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .lesson-grid,
+    .coach-grid,
+    .features,
+    .leadership-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media (max-width:600px){
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+}
+
+/* ================= HARD CENTER FIX FOR CTA BLOCKS ================= */
+
+.cta-center{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+/* row of buttons (Discord / Email etc.) */
+.cta-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    width:100%;
+}
+
+/* IMPORTANT: prevents grid/flex parents from stretching buttons oddly */
+.cta-center .btn,
+.cta-row .btn{
+    width:auto !important;
+    display:inline-flex;
+}
+
+#academy .lesson-card{
+    align-items:center;
+    text-align:center;
+}
+
+#booking_new{
+   display: flex;
+  justify-content: center; /* Horizontally centers the div */
+  align-items: center;
+}
+/* Academy CTA */
+
+.academy-cta{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:40px auto 0;
+}
+/* Contact section */
+
+#contact{
+    text-align:center;
+}
+
+#contact p{
+    max-width:700px;
+    margin:0 auto 30px;
+    color:var(--muted);
+}
+
+.contact-buttons{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+/* ================= PLATFORMS FIX ================= */
+
+#platforms .lesson-card{
+    text-align: center;
+    align-items: center;
+}
+
+/* center paragraph text */
+#platforms .lesson-card p{
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+/* space between text and button */
+#platforms .lesson-card .btn{
+    margin-top: 10px;
+}
+
+/* ensure button container doesn’t stretch awkwardly */
+#platforms .lesson-card a{
+    display: inline-flex;
+    justify-content: center;
+}
+
+/* ensures section containers don't force left alignment */
+#contact .cta-center,
+#academy .cta-center{
+    margin:40px auto 0;
+}
