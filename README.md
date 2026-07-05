@@ -9,3 +9,19 @@ We have around 200+ members from all around the world in Discord and are intende
 WANT TO JOIN? Discord server: https://discord.gg/ReRyafFUyX
 
 WANT TO HAVE A FREE LESSON: https://docs.google.com/forms/d/e/1FAIpQLScP-IWRLWm2YA4_FyoiK8bj24FgcYeR2xNkk92BXI6CRpx51g/viewform?usp=sharing&ouid=112609966691167458901 - Form to book private lessons for Free from CoachCarts Lab (CCL). After the form is submitted we will assign the student a coach within the next 72 hours via email/discord to start free coaching
+
+## How to run
+
+This project is a simple static website, so you can run it locally in one of the following ways:
+
+1. Open Terminal in the project folder and install git into your computer and setup git: https://git-scm.com/install/.
+2. Run:
+   ```bash
+   git clone "https://github.com/Aariv2012/CoachCarts-Lab-Website.git"
+   ```
+3. Run directly
+    ```bash
+    Click on file index.html and open it directly to your browser.
+    ```
+
+If you are using VS Code, you can also run the page with the Live Server extension.
