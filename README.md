@@ -22,4 +22,5 @@ This project is a simple static website, so you can run it locally in the follow
 3. Run directly
     ```bash
     If you are using VS Code, you can run the page with the Live Server extension.
+    ![alt text](image.png)
     ```
