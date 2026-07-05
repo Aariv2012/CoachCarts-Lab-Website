@@ -21,7 +21,5 @@ This project is a simple static website, so you can run it locally in one of the
    ```
 3. Run directly
     ```bash
-    Click on file index.html and open it directly to your browser.
+    If you are using VS Code, you can run the page with the Live Server extension.
     ```
-
-If you are using VS Code, you can also run the page with the Live Server extension.
