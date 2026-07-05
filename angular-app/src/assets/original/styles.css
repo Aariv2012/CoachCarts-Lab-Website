@@ -1,0 +1,756 @@
+/* =========================================================
+   COACHCARTS LAB
+   FULL STYLESHEET (REFINED)
+   Fixes: spacing rhythm, hero balance, CTA alignment,
+   offerings positioning, and structural consistency
+   ========================================================= */
+
+/* ================= ROOT ================= */
+
+:root{
+    --primary:#6366f1;
+    --primary-dark:#4f46e5;
+    --bg:#030712;
+    --card:rgba(255,255,255,0.02);
+    --text:#f3f4f6;
+    --muted:#9ca3af;
+    --border:rgba(255,255,255,0.05);
+    --shadow:0 20px 40px rgba(0,0,0,0.4);
+    --radius:18px;
+    --transition:all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.05) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(6, 182, 212, 0.06) 0px, transparent 50%);
+    background-attachment:fixed;
+    color:var(--text);
+    line-height:1.75;
+    overflow-x:hidden;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    padding-left:20px;
+}
+
+/* ================= GLOBAL SECTION SPACING ================= */
+
+section{
+    padding:80px 8%;
+}
+
+section + section{
+    padding-top:70px;
+}
+
+/* ================= TYPOGRAPHY ================= */
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    font-weight:800;
+    margin-bottom:18px;
+    background:linear-gradient(135deg, #f3f4f6, #a5b4fc, #c084fc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    letter-spacing:-0.5px;
+}
+
+.section-subtitle{
+    max-width:760px;
+    margin:0 auto 35px;
+    text-align:center;
+    color:var(--muted);
+    font-size:1.05rem;
+}
+
+.subsection-title{
+    font-size:1.8rem;
+    font-weight:700;
+    margin:40px 0 20px;
+    text-align:center;
+    background:linear-gradient(135deg, #fff, #c084fc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(3, 7, 18, 0.7);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.45rem;
+    font-weight:800;
+    letter-spacing:-0.5px;
+    color:#fff;
+}
+
+.logo span{
+    background:linear-gradient(135deg, #6366f1, #a855f7);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    font-weight:500;
+    transition:var(--transition);
+}
+
+.nav-links a:hover{
+    color:#fff;
+    text-shadow: 0 0 10px rgba(99,102,241,0.5);
+}
+
+.menu-btn{
+    display:none;
+    border:none;
+    background:none;
+    font-size:1.5rem;
+    color:#fff;
+    cursor:pointer;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:14px 28px;
+    border-radius:18px;
+    font-weight:600;
+    transition:var(--transition);
+    cursor:pointer;
+    white-space:nowrap;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn.primary{
+    background:linear-gradient(135deg, #6366f1, #4f46e5);
+    color:#fff;
+    border:1px solid rgba(99,102,241,0.5);
+    box-shadow: 0 4px 14px rgba(99,102,241,0.25);
+}
+
+.btn.primary:hover{
+    background:linear-gradient(135deg, #4f46e5, #4338ca);
+    color:#fff;
+    box-shadow: 0 6px 20px rgba(99,102,241,0.4);
+    transform:translateY(-2px);
+}
+
+.btn.secondary{
+    background:rgba(255, 255, 255, 0.03);
+    color:#fff;
+    border:1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter:blur(6px);
+}
+
+.btn.secondary:hover{
+    background:rgba(255, 255, 255, 0.08);
+    color:#fff;
+    border-color:rgba(255, 255, 255, 0.2);
+    transform:translateY(-2px);
+}
+
+/* ================= HERO (BALANCED DOMINANCE FIX) ================= */
+
+.hero{
+    min-height:88vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+}
+
+.hero-content{
+    flex:1;
+    max-width:620px;
+}
+
+.hero h1{
+    font-size:3.1rem;
+    line-height:1.15;
+    margin-bottom:18px;
+}
+
+.hero h2{
+    color:var(--muted);
+    font-weight:500;
+    margin-bottom:18px;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:1.05rem;
+    margin-bottom:14px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.hero-3d-wrapper{
+    flex:1.2;
+    position:relative;
+    width:100%;
+    height:550px;
+    background:#080810;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 25px 60px rgba(0,0,0,0.3), inset 0 0 40px rgba(99,102,241,0.1);
+    border:1px solid rgba(255, 255, 255, 0.05);
+}
+
+#canvas-container{
+    width:100%;
+    height:100%;
+}
+
+.controls-overlay{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    background:rgba(10, 10, 20, 0.75);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255, 255, 255, 0.08);
+    border-radius:18px;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:center;
+    z-index:10;
+    box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
+
+.theme-title{
+    font-size:0.75rem;
+    font-weight:600;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#a5b4fc;
+    margin-bottom:2px;
+}
+
+.theme-buttons{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.theme-btn{
+    background:rgba(255, 255, 255, 0.05);
+    border:1px solid rgba(255, 255, 255, 0.15);
+    color:#e2e8f0;
+    padding:6px 14px;
+    border-radius:10px;
+    font-size:0.8rem;
+    font-weight:500;
+    cursor:pointer;
+    transition:all 0.25s ease;
+}
+
+.theme-btn:hover{
+    background:rgba(255, 255, 255, 0.15);
+    border-color:rgba(255, 255, 255, 0.3);
+    transform:translateY(-1px);
+}
+
+.theme-btn.active{
+    background:linear-gradient(135deg, #6366f1, #4f46e5);
+    border-color:#818cf8;
+    box-shadow:0 4px 12px rgba(99, 102, 241, 0.35);
+    color:#fff;
+}
+
+.theme-btn.reset-btn{
+    border-color: rgba(239, 68, 68, 0.4);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.theme-btn.reset-btn:hover{
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.6);
+    color: #fca5a5;
+}
+
+.game-info{
+    font-size:0.75rem;
+    color:#94a3b8;
+    text-align:center;
+    font-weight:400;
+}
+
+/* ================= ABOUT ================= */
+
+#about{
+    background:transparent;
+}
+
+.about-container{
+    max-width:1000px;
+    margin:0 auto;
+}
+
+.about-container p{
+    color:var(--muted);
+    margin-bottom:22px;
+    font-size:1.05rem;
+    line-height:1.85;
+}
+
+/* ================= MISSION ================= */
+
+#mission{
+    background:transparent;
+}
+
+.mission-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-radius:var(--radius);
+    padding:35px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+}
+
+.mission-card:hover{
+    border-color: rgba(99, 102, 241, 0.25);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.1);
+}
+
+/* ================= LEADERSHIP ================= */
+
+#leadership{
+    background:transparent;
+}
+
+.leadership-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:26px;
+    margin-top:35px;
+}
+
+.leader-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-radius:var(--radius);
+    padding:28px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+}
+
+.leader-card:hover{
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
+    transform:translateY(-6px);
+}
+
+.leader-card p{
+    color:var(--muted);
+    font-size:.95rem;
+}
+
+/* ================= COACH CONTACT ================= */
+
+.coach-contact,
+.coach-links{
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid var(--border);
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    font-size:.9rem;
+    color:var(--muted);
+}
+
+.coach-contact strong,
+.coach-links strong{
+    color:var(--text);
+}
+
+/* ================= COACHES ================= */
+
+#coaches{
+    text-align:center;
+    background:transparent;
+}
+
+.coach-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:26px;
+    margin-top:40px;
+}
+
+.coach-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:26px;
+    text-align:center;
+    transition:var(--transition);
+    box-shadow:var(--shadow);
+}
+
+.coach-card:hover{
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
+    transform:translateY(-8px);
+}
+
+.coach-card img{
+    width:140px;
+    height:140px;
+    object-fit:cover;
+    border-radius:50%;
+    margin:0 auto 18px;
+    border:4px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.coach-card:hover img{
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.coach-card p{
+    color:var(--muted);
+    margin-bottom:12px;
+}
+
+/* ================= OFFERINGS ================= */
+
+#offerings{
+    padding-top:55px;
+    background:transparent;
+}
+
+.lesson-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:26px;
+    margin-top:30px;
+}
+
+/* ================= LESSON CARDS ================= */
+
+.lesson-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-radius:18px;
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+}
+
+.lesson-card:hover{
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
+    transform:translateY(-6px);
+}
+
+.lesson-card ul{
+    color:var(--muted);
+    flex-grow:1;
+}
+
+/* ================= PLATFORM SPECIFIC BRAND GLOWS ================= */
+
+[data-platform="discord"]{
+    border-color: rgba(88, 101, 242, 0.15);
+}
+[data-platform="discord"]:hover{
+    border-color: rgba(88, 101, 242, 0.6) !important;
+    box-shadow: 0 15px 35px rgba(88, 101, 242, 0.25) !important;
+}
+
+[data-platform="chesscom"]{
+    border-color: rgba(129, 182, 76, 0.15);
+}
+[data-platform="chesscom"]:hover{
+    border-color: rgba(129, 182, 76, 0.6) !important;
+    box-shadow: 0 15px 35px rgba(129, 182, 76, 0.25) !important;
+}
+
+[data-platform="lichess"]{
+    border-color: rgba(215, 176, 102, 0.15);
+}
+[data-platform="lichess"]:hover{
+    border-color: rgba(215, 176, 102, 0.6) !important;
+    box-shadow: 0 15px 35px rgba(215, 176, 102, 0.25) !important;
+}
+
+[data-platform="youtube"]{
+    border-color: rgba(255, 0, 0, 0.15);
+}
+[data-platform="youtube"]:hover{
+    border-color: rgba(255, 0, 0, 0.6) !important;
+    box-shadow: 0 15px 35px rgba(255, 0, 0, 0.25) !important;
+}
+
+/* ================= CTA FIX ================= */
+
+.lesson-cta{
+    display:flex;
+    justify-content:center;
+    margin-top:28px;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:22px;
+    margin-top:35px;
+}
+
+.feature{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-radius:18px;
+    padding:26px;
+    transition:var(--transition);
+    box-shadow:var(--shadow);
+}
+
+.feature:hover{
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
+    transform:translateY(-6px);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#111;
+    color:#ddd;
+    padding:55px 8%;
+    text-align:center;
+}
+
+footer p{
+    color:#bdbdbd;
+    margin:6px 0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:900px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        min-height:auto;
+    }
+
+    .hero-3d-wrapper{
+        height:400px;
+        margin-top:20px;
+        order:-1;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .lesson-grid,
+    .coach-grid,
+    .features,
+    .leadership-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media (max-width:600px){
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+}
+
+/* ================= HARD CENTER FIX FOR CTA BLOCKS ================= */
+
+.cta-center{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+/* row of buttons (Discord / Email etc.) */
+.cta-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    width:100%;
+}
+
+/* IMPORTANT: prevents grid/flex parents from stretching buttons oddly */
+.cta-center .btn,
+.cta-row .btn{
+    width:auto !important;
+    display:inline-flex;
+}
+
+#academy .lesson-card{
+    align-items:center;
+    text-align:center;
+}
+
+#booking_new{
+   display: flex;
+  justify-content: center; /* Horizontally centers the div */
+  align-items: center;
+}
+/* Academy CTA */
+
+.academy-cta{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:40px auto 0;
+}
+/* Contact section */
+
+#contact{
+    text-align:center;
+}
+
+#contact p{
+    max-width:700px;
+    margin:0 auto 30px;
+    color:var(--muted);
+}
+
+.contact-buttons{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+/* ================= PLATFORMS FIX ================= */
+
+#platforms .lesson-card{
+    text-align: center;
+    align-items: center;
+}
+
+/* center paragraph text */
+#platforms .lesson-card p{
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+/* space between text and button */
+#platforms .lesson-card .btn{
+    margin-top: 10px;
+}
+
+/* ensure button container doesn’t stretch awkwardly */
+#platforms .lesson-card a{
+    display: inline-flex;
+    justify-content: center;
+}
+
+/* ensures section containers don't force left alignment */
+#contact .cta-center,
+#academy .cta-center{
+    margin:40px auto 0;
+}

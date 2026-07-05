@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CoachCarts Lab | Free Chess Education for Everyone</title>
+
+    <meta name="description" content="CoachCarts Lab is a nonprofit chess organization dedicated to providing free chess education, tournaments, study materials, and community support for players worldwide.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Three.js and GSAP for 3D Interactive Chessboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- ================= NAV ================= -->
+
+<header>
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            Coach<span>Carts Lab</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#leadership">Leadership</a></li>
+            <li><a href="#coaches">Coaches</a></li>
+            <li><a href="#offerings">Offerings</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#platforms">Platforms</a></li>
+            <li><a href="#academy">Academy</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button class="menu-btn">☰</button>
+
+    </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <h1>Free Chess Education for Everyone</h1>
+
+        <h2>CoachCarts Lab</h2>
+
+        <p>
+            A nonprofit chess organization dedicated to making high-quality chess education
+            accessible to everyone, regardless of financial circumstances.
+        </p>
+
+        <p>
+            We provide free lessons, tournaments, mentorship, resources, and a global community
+            focused on improvement through structured learning.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#offerings" class="btn primary">
+                Explore Programs
+            </a>
+
+            <a href="https://discord.gg/ReRyafFUyX" target="_blank" class="btn secondary">
+                Join Discord
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-3d-wrapper">
+        <div id="canvas-container"></div>
+        <div class="controls-overlay">
+            <div class="theme-title">CHESSBOARD THEME</div>
+            <div class="theme-buttons">
+                <button class="theme-btn active" data-theme="cyber">Cyberpunk Neon</button>
+                <button class="theme-btn" data-theme="obsidian">Gold & Obsidian</button>
+                <button class="theme-btn" data-theme="glass">Frosted Ice</button>
+                <button class="theme-btn reset-btn" id="reset-board">Reset Board</button>
+            </div>
+            <div class="game-info">
+                Hover pieces to see moves • Drag to rotate
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <h2 class="section-title">About CoachCarts Lab</h2>
+
+    <div class="about-container">
+
+        <p>
+            CoachCarts Lab is a nonprofit chess organization focused on free chess education.
+        </p>
+
+        <p>
+            Our mission is to prove that improvement does not require paid coaching.
+            Players grow through structured learning, community support, and consistent practice.
+        </p>
+
+        <p>
+            We have impacted over <strong>400+ members</strong> through lessons, tournaments,
+            and educational content.
+        </p>
+
+        <p>
+            Weekly live lessons are hosted on Discord and open to all skill levels.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= MISSION ================= -->
+
+<section id="mission">
+
+    <h2 class="section-title">Our Mission</h2>
+
+    <div class="mission-card">
+        <p>
+            To provide free chess education, tournaments, mentorship, and resources
+            while building a global learning community.
+        </p>
+    </div>
+
+</section>
+
+<!-- ================= STATS ================= -->
+
+<section id="stats">
+
+    <h2 class="section-title">At a Glance</h2>
+
+    <div class="features">
+
+        <div class="feature">
+            <h3><span class="count-up" data-target="400">0</span>+</h3>
+            <p>Players impacted worldwide.</p>
+        </div>
+
+        <div class="feature">
+            <h3><span class="count-up" data-target="100">0</span>% Free</h3>
+            <p>No paid coaching or subscriptions.</p>
+        </div>
+
+        <div class="feature">
+            <h3>Weekly Lessons</h3>
+            <p>Live structured improvement sessions.</p>
+        </div>
+
+        <div class="feature">
+            <h3>Global Community</h3>
+            <p>Players from all regions and levels.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= LEADERSHIP ================= -->
+
+<section id="leadership">
+
+    <h2 class="section-title">Leadership Team</h2>
+
+    <p class="section-subtitle">
+        Volunteer-run organization focused on chess education.
+    </p>
+
+    <div class="leadership-grid">
+
+        <div class="leader-card">
+            <h3>Founder / CEO</h3>
+            <h4>Aariv Shah</h4>
+            <p>Discord: <strong>thundermist30</strong></p>
+        </div>
+
+        <div class="leader-card">
+            <h3>Co-Founder</h3>
+            <h4>Forge Apostra</h4>
+            <p>Discord: <strong>decoyapostra</strong></p>
+        </div>
+
+        <div class="leader-card">
+            <h3>Co-Founder</h3>
+            <h4>Coach Gab</h4>
+            <p>Discord: <strong>gabbeingexposed</strong></p>
+        </div>
+
+    </div>
+
+    <h3 class="subsection-title">Head Coaches</h3>
+
+    <div class="leadership-grid">
+
+        <div class="leader-card">
+            <h4>Coach Nova</h4>
+            <p>Discord: <strong>interstellar_star</strong></p>
+        </div>
+
+        <div class="leader-card">
+            <h4>Coach vmhitz</h4>
+            <p>Discord: <strong>vmhitz</strong></p>
+        </div>
+
+        <div class="leader-card">
+            <h4>Coach Tree</h4>
+            <p>Discord: <strong>thinking_tree</strong></p>
+        </div>
+
+    </div>
+
+    <h3 class="subsection-title">Web Developers</h3>
+
+    <div class="leadership-grid">
+
+        <div class="leader-card">
+            <h4>Viet Anh Ho</h4>
+            <p>Chess.com: <strong>gm_tigerva123454061</strong></p>
+        </div>
+
+        <div class="leader-card">
+            <h4>Saatvik Gudavalli</h4>
+            <p>Chess.com: <strong>checkmate5076</strong></p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= COACHES ================= -->
+
+<section id="coaches">
+
+    <h2 class="section-title">Coaching Profiles</h2>
+
+    <p class="section-subtitle">
+        Volunteers helping teach and grow the community.
+    </p>
+
+    <div class="coach-grid">
+
+        <div class="coach-card">
+            <img src="https://placehold.co/300x300?text=Coach" alt="Coach Thunder">
+            <h3>Coach Thunder</h3>
+            <h4>Founder</h4>
+            <p>1600 FIDE / 2100 Rapid / 2000 Blitz coach focused on fundamentals.</p>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://placehold.co/300x300?text=Coach" alt="Coach Gab">
+            <h3>Coach Gab</h3>
+            <h4>Head Coach</h4>
+            <p>2400 Lichess player focused on positional understanding.</p>
+            <p class="coach-links">
+                Discord: <strong>AGM Gab the cat alien</strong> • Chess.com: <strong>AngPinoyBoy</strong>
+            </p>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://placehold.co/300x300?text=Coach" alt="Coach Tree">
+            <h3>Coach Tree</h3>
+            <h4>Head Coach</h4>
+            <p>2250 Rapid player specializing in tactical + positional play.</p>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://placehold.co/300x300?text=Coach" alt="Forge Apostra">
+            <h3>Forge Apostra</h3>
+            <h4>Co-Founder</h4>
+            <p class="coach-links">
+                Discord: <strong>ForgeApostra</strong> • Chess.com: <strong>Zwangsters</strong>
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= OFFERINGS ================= -->
+
+<section id="offerings" class="tight-top">
+
+    <h2 class="section-title">What We Offer</h2>
+
+    <div class="lesson-grid">
+
+        <div class="lesson-card">
+            <h3>Free Lessons</h3>
+            <ul>
+                <li>Tactics</li>
+                <li>Endgames</li>
+                <li>Openings</li>
+                <li>Strategy</li>
+            </ul>
+        </div>
+
+        <div class="lesson-card">
+            <h3>Study Materials</h3>
+            <ul>
+                <li>Guides</li>
+                <li>Exercises</li>
+                <li>Resources</li>
+            </ul>
+        </div>
+
+        <div class="lesson-card">
+            <h3>Tournaments</h3>
+            <ul>
+                <li>Chess.com events</li>
+                <li>Lichess arenas</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= ACADEMY ================= -->
+
+<section id="academy">
+
+    <h2 class="section-title">Academy Path</h2>
+
+    <p class="academy-note">
+        Structured learning progression from beginner to advanced.
+    </p>
+
+    <div class="lesson-grid">
+
+        <div class="lesson-card">
+            <h3>Beginner</h3>
+            <p>Fundamentals and tactics.</p>
+        </div>
+
+        <div class="lesson-card">
+            <h3>Intermediate</h3>
+            <p>Strategy and calculation.</p>
+        </div>
+
+        <div class="lesson-card">
+            <h3>Advanced</h3>
+            <p>Deep analysis and tournament prep.</p>
+        </div>
+
+    </div>
+
+    <div id="booking_new">
+
+    <div class="academy-cta">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScP-IWRLWm2YA4_FyoiK8bj24FgcYeR2xNkk92BXI6CRpx51g/viewform?usp=sharing&ouid=112609966691167458901" class="btn primary">
+            Book a Private Lesson
+        </a>
+    </div>
+    </div>
+
+</section>
+
+<!-- ================= IMPACT ================= -->
+
+<section id="impact">
+
+    <h2 class="section-title">Our Impact</h2>
+
+    <p class="section-subtitle">
+        Growth driven entirely by volunteers and community effort.
+    </p>
+
+    <div class="features">
+
+        <div class="feature">
+            <h3><span class="count-up" data-target="400">0</span>+</h3>
+            <p>Players impacted through lessons and events.</p>
+        </div>
+
+        <div class="feature">
+            <h3>Weekly Lessons</h3>
+            <p>Consistent free training sessions on Discord.</p>
+        </div>
+
+        <div class="feature">
+            <h3>Global Community</h3>
+            <p>Members from around the world improving together.</p>
+        </div>
+
+        <div class="feature">
+            <h3>Free Resources</h3>
+            <p>Study materials, guides, and training tools.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PLATFORMS ================= -->
+
+<section id="platforms">
+
+    <h2 class="section-title">Our Platforms</h2>
+
+    <p class="section-subtitle">
+        Join the community across all major chess platforms.
+    </p>
+
+    <div class="lesson-grid">
+
+        <div class="lesson-card" data-platform="discord">
+            <h3>Discord</h3>
+            <p>Main hub for lessons, events, and community discussion.</p>
+            <a href="https://discord.gg/ReRyafFUyX" target="_blank" class="btn primary">
+                Join Discord
+            </a>
+        </div>
+
+        <div class="lesson-card" data-platform="chesscom">
+            <h3>Chess.com</h3>
+            <p>Compete in club tournaments and community events.</p>
+            <a href="https://www.chess.com/club/coachcarts-lab" target="_blank" class="btn primary">
+                Visit Club
+            </a>
+        </div>
+
+        <div class="lesson-card" data-platform="lichess">
+            <h3>Lichess</h3>
+            <p>Arena events and training games for all levels.</p>
+            <a href="https://lichess.org/team/coachcarts-chess-lab" target="_blank" class="btn primary">
+                Join Team
+            </a>
+        </div>
+
+        <div class="lesson-card" data-platform="youtube">
+            <h3>YouTube</h3>
+            <p>Educational videos and recorded lessons.</p>
+            <a href="https://www.youtube.com/@CoachCartsLab" target="_blank" class="btn primary">
+                Watch Videos
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+    
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <h2 class="section-title">Contact</h2>
+
+    <p>
+        Join, volunteer, or ask questions.
+    </p>
+
+    <div class="contact-buttons">
+
+        <a href="https://discord.gg/ReRyafFUyX" target="_blank" class="btn primary">
+            Join Discord
+        </a>
+
+        <a href="mailto:chesscoaching425@gmail.com" class="btn secondary">
+            Email Us
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>CoachCarts Lab</h3>
+
+    <p>Free Chess Education for Everyone</p>
+
+    <p>
+        © 2026 CoachCarts Lab
+    </p>
+
+</footer>
+
+<!-- Custom Glowing Cursor Follower -->
+<div class="cursor-follower"></div>
+
+<script src="scripts.js"></script>
+<script src="3d-chess.js"></script>
+
+</body>
+</html>
