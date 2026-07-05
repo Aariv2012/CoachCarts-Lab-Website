@@ -1,0 +1,39 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    - cron: '0 2 * * 0'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
+
+      - name: Build (if package.json exists)
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+            if grep -q '"build"' package.json; then
+              npm run build
+            else
+              echo "No build script defined — skipping build"
+            fi
+          else
+            echo "No package.json — skipping install/build"
+          fi
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2

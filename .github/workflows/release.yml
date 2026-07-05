@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install (if package.json exists)
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+          else
+            echo "No package.json found — skipping npm install"
+          fi
+
+      - name: Build (if script exists)
+        run: |
+          if [ -f package.json ] && grep -q '"build"' package.json; then
+            npm run build
+          else
+            echo "No build script defined — skipping build"
+          fi
+
+      - name: Prepare release artifact
+        run: |
+          if [ -d dist ]; then zip -r dist.zip dist; else echo "No dist directory — skipping artifact"; fi
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload release asset (dist)
+        if: success() && github.ref_name != ''
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist.zip
+          asset_name: dist.zip
+          asset_content_type: application/zip
