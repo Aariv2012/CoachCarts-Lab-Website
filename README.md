@@ -12,7 +12,7 @@ WANT TO HAVE A FREE LESSON: https://docs.google.com/forms/d/e/1FAIpQLScP-IWRLWm2
 
 ## How to run
 
-This project is a simple static website, so you can run it locally in one of the following ways:
+This project is a simple static website, so you can run it locally in the following ways:
 
 1. Open Terminal in the project folder and install git into your computer and setup git: https://git-scm.com/install/.
 2. Run:
