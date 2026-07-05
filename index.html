@@ -14,6 +14,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Three.js and GSAP for 3D Interactive Chessboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -79,14 +84,20 @@
 
     </div>
 
-    <div class="hero-image">
-
-        <div class="hero-card">
-            <div class="king">♔</div>
-            <h3>100% Free</h3>
-            <p>Lessons, tournaments, mentorship, and community support.</p>
+    <div class="hero-3d-wrapper">
+        <div id="canvas-container"></div>
+        <div class="controls-overlay">
+            <div class="theme-title">CHESSBOARD THEME</div>
+            <div class="theme-buttons">
+                <button class="theme-btn active" data-theme="cyber">Cyberpunk Neon</button>
+                <button class="theme-btn" data-theme="obsidian">Gold & Obsidian</button>
+                <button class="theme-btn" data-theme="glass">Frosted Ice</button>
+                <button class="theme-btn reset-btn" id="reset-board">Reset Board</button>
+            </div>
+            <div class="game-info">
+                Hover pieces to see moves • Drag to rotate
+            </div>
         </div>
-
     </div>
 
 </section>
@@ -145,12 +156,12 @@
     <div class="features">
 
         <div class="feature">
-            <h3>400+</h3>
+            <h3><span class="count-up" data-target="400">0</span>+</h3>
             <p>Players impacted worldwide.</p>
         </div>
 
         <div class="feature">
-            <h3>100% Free</h3>
+            <h3><span class="count-up" data-target="100">0</span>% Free</h3>
             <p>No paid coaching or subscriptions.</p>
         </div>
 
@@ -359,7 +370,7 @@
     <div id="booking_new">
 
     <div class="academy-cta">
-        <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn primary">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScP-IWRLWm2YA4_FyoiK8bj24FgcYeR2xNkk92BXI6CRpx51g/viewform?usp=sharing&ouid=112609966691167458901" class="btn primary">
             Book a Private Lesson
         </a>
     </div>
@@ -380,7 +391,7 @@
     <div class="features">
 
         <div class="feature">
-            <h3>400+</h3>
+            <h3><span class="count-up" data-target="400">0</span>+</h3>
             <p>Players impacted through lessons and events.</p>
         </div>
 
@@ -415,7 +426,7 @@
 
     <div class="lesson-grid">
 
-        <div class="lesson-card">
+        <div class="lesson-card" data-platform="discord">
             <h3>Discord</h3>
             <p>Main hub for lessons, events, and community discussion.</p>
             <a href="https://discord.gg/ReRyafFUyX" target="_blank" class="btn primary">
@@ -423,7 +434,7 @@
             </a>
         </div>
 
-        <div class="lesson-card">
+        <div class="lesson-card" data-platform="chesscom">
             <h3>Chess.com</h3>
             <p>Compete in club tournaments and community events.</p>
             <a href="https://www.chess.com/club/coachcarts-lab" target="_blank" class="btn primary">
@@ -431,7 +442,7 @@
             </a>
         </div>
 
-        <div class="lesson-card">
+        <div class="lesson-card" data-platform="lichess">
             <h3>Lichess</h3>
             <p>Arena events and training games for all levels.</p>
             <a href="https://lichess.org/team/coachcarts-chess-lab" target="_blank" class="btn primary">
@@ -439,7 +450,7 @@
             </a>
         </div>
 
-        <div class="lesson-card">
+        <div class="lesson-card" data-platform="youtube">
             <h3>YouTube</h3>
             <p>Educational videos and recorded lessons.</p>
             <a href="https://www.youtube.com/@CoachCartsLab" target="_blank" class="btn primary">
@@ -491,7 +502,11 @@
 
 </footer>
 
-<script src="script.js"></script>
+<!-- Custom Glowing Cursor Follower -->
+<div class="cursor-follower"></div>
+
+<script src="scripts.js"></script>
+<script src="3d-chess.js"></script>
 
 </body>
 </html>

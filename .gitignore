@@ -40,3 +40,6 @@ cache/
 # Archives
 *.tgz
 node_modules
+
+# Local generated folder
+17.3.17/

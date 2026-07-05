@@ -10,7 +10,6 @@ WANT TO JOIN? Discord server: https://discord.gg/ReRyafFUyX
 
 WANT TO HAVE A FREE LESSON: https://docs.google.com/forms/d/e/1FAIpQLScP-IWRLWm2YA4_FyoiK8bj24FgcYeR2xNkk92BXI6CRpx51g/viewform?usp=sharing&ouid=112609966691167458901 - Form to book private lessons for Free from CoachCarts Lab (CCL). After the form is submitted we will assign the student a coach within the next 72 hours via email/discord to start free coaching
 
-
 ## How to run
 
 This project is a simple static website, so you can run it locally in one of the following ways:
